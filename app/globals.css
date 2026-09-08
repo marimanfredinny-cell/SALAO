@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  --offwhite: #f6f1e8;
+  --bege: #e8dbc7;
+  --nude: #dfc9b4;
+  --champagne: #f0e4d0;
+  --gold: #bc9c63;
+  --gold-soft: #d8c199;
+  --cocoa: #3b2c22;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--offwhite);
+  color: var(--cocoa);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--gold);
+  color: #fff;
+}
+
+/* ---------- Lenis smooth scroll ---------- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ---------- layout helpers ---------- */
+.u-container {
+  width: 100%;
+  max-width: 1480px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 6rem);
+}
+.u-hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* ---------- custom cursor ---------- */
+@media (hover: hover) and (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor * {
+    cursor: none !important;
+  }
+}
+
+.cursor-ring {
+  width: 38px;
+  height: 38px;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    opacity 0.3s ease;
+}
+.cursor-ring[data-state="image"] {
+  width: 90px;
+  height: 90px;
+  background: rgba(188, 156, 99, 0.12);
+}
+.cursor-ring[data-state="button"] {
+  width: 58px;
+  height: 58px;
+  background: rgba(188, 156, 99, 0.18);
+}
+.cursor-ring[data-state="link"] {
+  width: 50px;
+  height: 50px;
+}
+.cursor-ring[data-state="product"] {
+  width: 92px;
+  height: 92px;
+  background: rgba(59, 44, 34, 0.92);
+  border-color: transparent;
+  color: var(--offwhite);
+}
+.cursor-ring .cursor-label {
+  opacity: 0;
+}
+.cursor-ring[data-has-label="true"] .cursor-label {
+  opacity: 1;
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
