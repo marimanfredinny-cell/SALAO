@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Kassen Coiffure — Beauty • Care • Experience</title>
+<title>Kassen Coiffure — Beleza • Cuidado • Experiência</title>
 <meta name="description" content="Mais do que um salão, um espaço para cuidar de você, transformar sua beleza e viver cada momento." />
 <meta name="theme-color" content="#F6F1E8" />
 
@@ -137,25 +137,25 @@
 
   /* ---------- services (pista horizontal em todos os tamanhos) ---------- */
   .services{background:var(--bege);height:100svh;min-height:600px;overflow:hidden;
-    display:flex;flex-direction:column;justify-content:center}
-  .services .head{position:absolute;top:11vh;left:0;right:0;z-index:5;max-width:40rem}
-  .services h2{margin-top:12px;font-size:clamp(2.25rem,6vw,4.5rem)}
-  .svc-scroller{display:flex;gap:16px;padding:0 7vw;align-items:center;will-change:transform}
-  .svc-card{position:relative;flex:0 0 84vw;display:flex;flex-direction:column;
-    overflow:hidden;background:var(--offwhite);height:64vh}
+    display:flex;flex-direction:column;justify-content:center;gap:clamp(1.5rem,4.5vh,3rem)}
+  .services .head{position:relative;z-index:5;max-width:46rem;flex:0 0 auto}
+  .services h2{margin-top:10px;font-size:clamp(2rem,5.5vw,4rem)}
+  .svc-scroller{display:flex;gap:16px;padding:0 7vw;align-items:center;will-change:transform;flex:0 0 auto}
+  .svc-card{position:relative;flex:0 0 82vw;display:flex;flex-direction:column;
+    overflow:hidden;background:var(--offwhite);height:58vh;max-height:560px}
   .svc-media{position:relative;flex:1;overflow:hidden}
   .svc-media img{transition:transform .7s var(--ease)}
   .svc-card:hover .svc-media img{transform:scale(1.05)}
   .svc-corner{position:absolute;width:32px;height:32px}
   .svc-corner.tl{left:16px;top:16px;border-left:1px solid var(--gold);border-top:1px solid var(--gold)}
   .svc-corner.br{right:16px;bottom:16px;border-right:1px solid var(--gold);border-bottom:1px solid var(--gold)}
-  .svc-body{padding:20px 22px}
+  .svc-body{padding:18px 22px}
   .svc-body .n{font-size:11px;letter-spacing:.3em;color:var(--gold)}
-  .svc-body h3{margin-top:6px;font-size:1.4rem}
-  .svc-body p{margin-top:6px;font-size:.86rem;color:var(--cocoa-soft)}
+  .svc-body h3{margin-top:6px;font-size:1.35rem}
+  .svc-body p{margin-top:6px;font-size:.85rem;color:var(--cocoa-soft)}
   @media(min-width:640px){ .svc-card{flex-basis:58vw} }
   @media(min-width:900px){ .svc-card{flex-basis:44vw} .svc-body h3{font-size:1.6rem} }
-  @media(min-width:1024px){ .services .head{top:14vh} .svc-scroller{padding:0 12vw} .svc-card{flex-basis:36vw} }
+  @media(min-width:1024px){ .svc-scroller{padding:0 12vw} .svc-card{flex-basis:36vw;height:62vh} }
   .no-anim .svc-scroller{overflow-x:auto;scroll-snap-type:x mandatory}
   .no-anim .svc-card{scroll-snap-align:center}
 
@@ -223,32 +223,6 @@
   .marquee-in{display:flex;gap:64px;width:max-content;white-space:nowrap;
     font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(59,44,34,.45)}
 
-  /* ---------- gallery ---------- */
-  .gallery{background:var(--offwhite);padding:clamp(6rem,12vw,9rem) 0;overflow:hidden}
-  .gallery .head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px}
-  .gallery h2{font-size:clamp(2.5rem,6vw,4.5rem)}
-  .gal-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
-  @media(min-width:768px){ .gal-grid{gap:24px} }
-  .gal-item{position:relative;overflow:hidden}
-  .gal-item img{transition:transform .9s var(--ease)}
-  .gal-item:hover img{transform:scale(1.1)}
-  .gal-item .ov{position:absolute;inset:0;background:rgba(59,44,34,0);transition:background .5s}
-  .gal-item:hover .ov{background:rgba(59,44,34,.25)}
-  .gal-item .plus{position:absolute;right:16px;top:16px;width:32px;height:32px;border:1px solid rgba(188,156,99,.6);
-    border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);opacity:0;transition:opacity .5s}
-  .gal-item:hover .plus{opacity:1}
-  .g1{grid-column:span 6;aspect-ratio:4/5}
-  .g2{grid-column:span 6;aspect-ratio:3/4}
-  .g3{grid-column:span 6;aspect-ratio:4/3}
-  .g4{grid-column:span 7;aspect-ratio:16/10}
-  .g5{grid-column:span 5;aspect-ratio:3/4}
-  .g6{grid-column:span 12;aspect-ratio:4/5}
-  @media(min-width:768px){
-    .g1{grid-column:span 4} .g2{grid-column:span 3;margin-top:64px}
-    .g3{grid-column:span 5;margin-top:-32px} .g4{grid-column:span 5}
-    .g5{grid-column:span 3;margin-top:40px} .g6{grid-column:span 4;margin-top:-24px}
-  }
-
   /* ---------- before / after ---------- */
   .ba{background:var(--bege);padding:clamp(6rem,12vw,9rem) 0}
   .ba h2{font-size:clamp(2.5rem,6vw,4.5rem)}
@@ -279,32 +253,21 @@
   .tst-dots{margin-top:32px;display:flex;gap:12px}
   .tst-dots i{display:block;width:56px;height:1px;background:rgba(216,193,153,.5)}
 
-  /* ---------- instagram ---------- */
-  .ig{background:var(--offwhite);padding:clamp(6rem,12vw,9rem) 0;overflow:hidden}
-  .ig .head{text-align:center}
-  .ig h2{margin-top:12px;font-size:clamp(2.5rem,6vw,4.5rem)}
-  .ig .handle{margin-top:16px;display:inline-block;font-size:.9rem;letter-spacing:.06em;color:var(--cocoa-soft)}
-  .ig-grid{margin-top:48px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-  @media(min-width:768px){ .ig-grid{grid-template-columns:repeat(3,1fr);gap:20px} }
-  @media(min-width:1024px){ .ig-grid{grid-template-columns:repeat(6,1fr)} }
-  .ig-item{position:relative;aspect-ratio:1;overflow:hidden}
-  .ig-item img{transition:transform .7s var(--ease)}
-  .ig-item:hover img{transform:scale(1.1)}
-  .ig-item .ov{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-    background:rgba(59,44,34,0);color:var(--offwhite);opacity:0;transition:all .5s}
-  .ig-item:hover .ov{background:rgba(59,44,34,.35);opacity:1}
-
   /* ---------- final cta ---------- */
-  .cta{min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--cocoa);color:var(--offwhite)}
+  .cta{min-height:100svh;display:flex;align-items:center;justify-content:center;
+    overflow:hidden;background:var(--cocoa);color:var(--offwhite);text-align:center}
   .cta-bg{position:absolute;inset:0;opacity:.4}
-  .cta-line-v{position:absolute;left:32px;top:0;bottom:0;width:1px;background:rgba(188,156,99,.4);transform:scaleY(0);transform-origin:top}
+  .cta-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+  .cta-line-v{position:absolute;left:24px;top:0;bottom:0;width:1px;background:rgba(188,156,99,.35);transform:scaleY(0);transform-origin:top}
   @media(min-width:768px){ .cta-line-v{left:64px} }
-  .cta-line-h{position:absolute;left:0;right:0;top:50%;border-top:1px solid rgba(188,156,99,.25);transform:scaleX(0);transform-origin:left}
-  .cta-inner{position:relative;z-index:10;text-align:center;padding:6rem 0;width:100%}
-  .cta h2{font-size:clamp(3.5rem,13vw,7rem)}
+  .cta-line-h{position:absolute;left:0;right:0;top:50%;border-top:1px solid rgba(188,156,99,.22);transform:scaleX(0);transform-origin:left}
+  .cta-inner{position:relative;z-index:10;width:100%;max-width:60rem;margin:0 auto;
+    display:flex;flex-direction:column;align-items:center;
+    padding:6rem clamp(1.75rem,6vw,3rem)}
+  .cta h2{font-size:clamp(2.5rem,11vw,7rem);overflow-wrap:break-word}
   .cta h2 em{font-style:italic;color:var(--gold-soft)}
   .cta .sub{margin-top:24px;color:rgba(246,241,232,.75)}
-  .cta-actions{margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:16px}
+  .cta-actions{margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:16px;width:100%}
   @media(min-width:640px){ .cta-actions{flex-direction:row;justify-content:center} }
   .cta-actions a{width:100%;text-align:center;border-radius:999px;padding:16px 32px;
     font-size:11px;letter-spacing:.3em;text-transform:uppercase;transition:all .3s var(--ease)}
@@ -361,7 +324,6 @@
       <a href="#servicos" data-cursor="link">Serviços</a>
       <a href="#experiencia" data-cursor="link">Experiência</a>
       <a href="#produtos" data-cursor="link">Produtos</a>
-      <a href="#galeria" data-cursor="link">Galeria</a>
       <a href="#contato" data-cursor="link">Contato</a>
     </nav>
     <div style="display:flex;align-items:center;gap:12px">
@@ -377,7 +339,6 @@
     <a href="#servicos">Serviços</a>
     <a href="#experiencia">Experiência</a>
     <a href="#produtos">Produtos</a>
-    <a href="#galeria">Galeria</a>
     <a href="#contato">Contato</a>
   </div>
   <div class="menu-cta"><a href="#contato">Agendar horário</a></div>
@@ -398,7 +359,7 @@
         <span class="mask"><span class="l1">KASSEN</span></span>
         <span class="mask"><span class="l2">Coiffure</span></span>
       </h1>
-      <p class="hero-sub">Beauty • Care • Experience</p>
+      <p class="hero-sub">Beleza • Cuidado • Experiência</p>
     </div>
     <div class="hero-scroll"><i></i></div>
   </section>
@@ -408,8 +369,8 @@
     <div class="container grid">
       <div>
         <h2>
-          <span class="mask"><span>Beauty is</span></span>
-          <span class="mask"><span>an <em>experience.</em></span></span>
+          <span class="mask"><span>A beleza é</span></span>
+          <span class="mask"><span>uma <em>experiência.</em></span></span>
         </h2>
         <p class="exp-copy">Mais do que um salão, um espaço para cuidar de você, transformar sua beleza e viver cada momento.</p>
       </div>
@@ -456,14 +417,14 @@
     <div class="hair-media"><img data-src="1595476108010-b4d1f102b1b1" alt="Editorial de cabelo" /></div>
     <div class="hair-inner">
       <h2>
-        <span class="mask"><span>Hair,</span></span>
-        <span class="mask"><span><em>your way.</em></span></span>
+        <span class="mask"><span>Cabelo</span></span>
+        <span class="mask"><span><em>do seu jeito.</em></span></span>
       </h2>
     </div>
-    <span class="hair-word w1">Cut</span>
-    <span class="hair-word w2">Color</span>
-    <span class="hair-word w3">Care</span>
-    <span class="hair-word w4">Shine</span>
+    <span class="hair-word w1">Corte</span>
+    <span class="hair-word w2">Cor</span>
+    <span class="hair-word w3">Cuidado</span>
+    <span class="hair-word w4">Brilho</span>
   </section>
 
   <!-- TREATMENTS -->
@@ -477,7 +438,7 @@
         </div>
         <div>
           <p class="kicker">Tratamentos</p>
-          <h2 style="margin-top:12px;font-size:clamp(2.5rem,6vw,4.5rem)">Care beyond beauty.</h2>
+          <h2 style="margin-top:12px;font-size:clamp(2.5rem,6vw,4.5rem)">Cuidado além da beleza.</h2>
           <div class="swap-wrap" id="trtSwap">
             <div class="swap-step first"><p class="k">Hidratação</p><p>Reposição de água e nutrientes para devolver maciez e brilho aos fios.</p></div>
             <div class="swap-step"><p class="k">Nutrição</p><p>Óleos e lipídios que restauram a elasticidade e o movimento natural.</p></div>
@@ -494,31 +455,31 @@
     <div class="container">
       <div class="head">
         <p class="kicker">Produtos</p>
-        <h2>Take the Kassen experience home.</h2>
+        <h2>Leve a experiência Kassen para casa.</h2>
         <span class="prod-underline"></span>
         <p class="intro">Continue seu ritual de cuidado em casa com produtos profissionais selecionados pelo Kassen Coiffure.</p>
       </div>
       <div class="prod-grid" id="prodGrid">
-        <article class="prod-card" data-cursor="product" data-label="View">
-          <div class="pic"><img data-src="1631730359585-38a4935cbec4" alt="Kassen Ritual Oil" /></div>
-          <p class="brand">Kassen Select</p><p class="name">Kassen Ritual Oil</p>
+        <article class="prod-card" data-cursor="product" data-label="Ver">
+          <div class="pic"><img data-src="1631730359585-38a4935cbec4" alt="Óleo Ritual Kassen" /></div>
+          <p class="brand">Kassen Select</p><p class="name">Óleo Ritual Kassen</p>
         </article>
-        <article class="prod-card" data-cursor="product" data-label="View">
-          <div class="pic"><img data-src="1598887142487-3c854d51d185" alt="Repair Shampoo" /></div>
-          <p class="brand">Keune</p><p class="name">Repair Shampoo</p>
+        <article class="prod-card" data-cursor="product" data-label="Ver">
+          <div class="pic"><img data-src="1598887142487-3c854d51d185" alt="Shampoo Reparador" /></div>
+          <p class="brand">Keune</p><p class="name">Shampoo Reparador</p>
         </article>
-        <article class="prod-card" data-cursor="product" data-label="View">
-          <div class="pic"><img data-src="1585232351009-aa87416fca90" alt="Silk Leave-in" /></div>
-          <p class="brand">Keune</p><p class="name">Silk Leave-in</p>
+        <article class="prod-card" data-cursor="product" data-label="Ver">
+          <div class="pic"><img data-src="1585232351009-aa87416fca90" alt="Leave-in Sedoso" /></div>
+          <p class="brand">Keune</p><p class="name">Leave-in Sedoso</p>
         </article>
-        <article class="prod-card" data-cursor="product" data-label="View">
-          <div class="pic"><img data-src="1620916566398-39f1143ab7be" alt="Glow Face Serum" /></div>
-          <p class="brand">Kassen Select</p><p class="name">Glow Face Serum</p>
+        <article class="prod-card" data-cursor="product" data-label="Ver">
+          <div class="pic"><img data-src="1620916566398-39f1143ab7be" alt="Sérum Facial Iluminador" /></div>
+          <p class="brand">Kassen Select</p><p class="name">Sérum Facial Iluminador</p>
         </article>
       </div>
       <div class="marquee"><div class="marquee-in" id="marquee">
-        <span>Kassen Select</span><span>Keune</span><span>Care Line</span><span>Color Lab</span><span>Kassen Home</span>
-        <span>Kassen Select</span><span>Keune</span><span>Care Line</span><span>Color Lab</span><span>Kassen Home</span>
+        <span>Kassen Select</span><span>Keune</span><span>Linha Profissional</span><span>Coloração</span><span>Kassen Casa</span>
+        <span>Kassen Select</span><span>Keune</span><span>Linha Profissional</span><span>Coloração</span><span>Kassen Casa</span>
       </div></div>
     </div>
   </section>
@@ -532,33 +493,15 @@
           <div class="p3d-obj"><img data-src="1608248543803-ba4f8c70ae0b" alt="Produto profissional Kassen" /></div>
         </div>
         <div>
-          <p class="kicker" style="color:var(--gold-soft)">The Kassen products</p>
+          <p class="kicker" style="color:var(--gold-soft)">Os produtos Kassen</p>
           <div class="swap-wrap" id="p3dSwap" style="height:13rem">
-            <div class="swap-step first"><span class="n">01</span><h3>Care</h3><p>Fórmulas que respeitam o fio e o couro cabeludo.</p></div>
-            <div class="swap-step"><span class="n">02</span><h3>Professional</h3><p>A mesma linha usada nos serviços do salão.</p></div>
+            <div class="swap-step first"><span class="n">01</span><h3>Cuidado</h3><p>Fórmulas que respeitam o fio e o couro cabeludo.</p></div>
+            <div class="swap-step"><span class="n">02</span><h3>Profissional</h3><p>A mesma linha usada nos serviços do salão.</p></div>
             <div class="swap-step"><span class="n">03</span><h3>Performance</h3><p>Resultado visível: brilho, maciez e proteção.</p></div>
-            <div class="swap-step"><span class="n">04</span><h3>Take it home</h3><p>Seu ritual Kassen continua todos os dias.</p></div>
-            <a href="#produtos" class="p3d-cta">Explore our products <i></i></a>
+            <div class="swap-step"><span class="n">04</span><h3>Leve para casa</h3><p>Seu ritual Kassen continua todos os dias.</p></div>
+            <a href="#produtos" class="p3d-cta">Conheça nossos produtos <i></i></a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section class="gallery" id="galeria">
-    <div class="container">
-      <div class="head">
-        <h2>The Kassen moment</h2>
-        <span class="kicker">Galeria</span>
-      </div>
-      <div class="gal-grid">
-        <figure class="gal-item g1" data-cursor="image" data-speed="0.9"><img data-src="1580618672591-eb180b1a973f" alt="Cabelo finalizado" /><span class="ov"></span><span class="plus">+</span></figure>
-        <figure class="gal-item g2" data-cursor="image" data-speed="1.2"><img data-src="1522337094846-8a818192de1f" alt="Unhas" /><span class="ov"></span><span class="plus">+</span></figure>
-        <figure class="gal-item g3" data-cursor="image" data-speed="0.8"><img data-src="1560869713-7d0a29430803" alt="Ambiente do salão" /><span class="ov"></span><span class="plus">+</span></figure>
-        <figure class="gal-item g4" data-cursor="image" data-speed="1.05"><img data-src="1633681926022-84c23e8cb2d6" alt="Tratamento capilar" /><span class="ov"></span><span class="plus">+</span></figure>
-        <figure class="gal-item g5" data-cursor="image" data-speed="1.3"><img data-src="1487412947147-5cebf100ffc2" alt="Cuidados com a pele" /><span class="ov"></span><span class="plus">+</span></figure>
-        <figure class="gal-item g6" data-cursor="image" data-speed="0.85"><img data-src="1596704017254-9b121068fb31" alt="Detalhe de produto" /><span class="ov"></span><span class="plus">+</span></figure>
       </div>
     </div>
   </section>
@@ -567,8 +510,8 @@
   <section class="ba" id="transformacao">
     <div class="container">
       <h2>
-        <span class="mask"><span>The</span></span>
-        <span class="mask"><span><em>transformation.</em></span></span>
+        <span class="mask"><span>A</span></span>
+        <span class="mask"><span><em>transformação.</em></span></span>
       </h2>
       <div class="ba-box" id="baBox">
         <div class="ba-layer ba-after"><img data-src="1560066984-138dadb4c035" alt="Depois" /><span class="ba-tag r">Depois</span></div>
@@ -583,7 +526,7 @@
   <section class="tst" id="depoimentos">
     <div class="tst-inner" id="tstStage">
       <div class="container">
-        <p class="kicker" style="color:var(--gold-soft)">What our clients say</p>
+        <p class="kicker" style="color:var(--gold-soft)">O que dizem nossas clientes</p>
         <div class="tst-list" id="tstList">
           <blockquote class="tst-item first"><p>&ldquo;Saí do Kassen me sentindo outra pessoa. Cada detalhe foi pensado para mim.&rdquo;</p><footer><b>Marina R.</b> — Cliente desde 2021</footer></blockquote>
           <blockquote class="tst-item"><p>&ldquo;O cuidado com o cabelo e com a experiência é de outro nível. Virou o meu ritual.&rdquo;</p><footer><b>Camila F.</b> — Coloração &amp; tratamento</footer></blockquote>
@@ -594,34 +537,15 @@
     </div>
   </section>
 
-  <!-- INSTAGRAM -->
-  <section class="ig" id="instagram">
-    <div class="container">
-      <div class="head">
-        <p class="kicker">Instagram</p>
-        <h2>Follow the Kassen moment</h2>
-        <a class="handle" href="https://instagram.com/salaokassencoiffure" target="_blank" rel="noreferrer" data-cursor="link">@salaokassencoiffure</a>
-      </div>
-      <div class="ig-grid" id="igGrid">
-        <a class="ig-item" href="https://instagram.com/salaokassencoiffure" target="_blank" rel="noreferrer" data-cursor="image"><img data-src="1554519515-242161756769" alt="Instagram Kassen" /><span class="ov">◎</span></a>
-        <a class="ig-item" href="https://instagram.com/salaokassencoiffure" target="_blank" rel="noreferrer" data-cursor="image"><img data-src="1633681926035-ec1ac984418a" alt="Instagram Kassen" /><span class="ov">◎</span></a>
-        <a class="ig-item" href="https://instagram.com/salaokassencoiffure" target="_blank" rel="noreferrer" data-cursor="image"><img data-src="1560869713-7d0a29430803" alt="Instagram Kassen" /><span class="ov">◎</span></a>
-        <a class="ig-item" href="https://instagram.com/salaokassencoiffure" target="_blank" rel="noreferrer" data-cursor="image"><img data-src="1522337660859-02fbefca4702" alt="Instagram Kassen" /><span class="ov">◎</span></a>
-        <a class="ig-item" href="https://instagram.com/salaokassencoiffure" target="_blank" rel="noreferrer" data-cursor="image"><img data-src="1570172619644-dfd03ed5d881" alt="Instagram Kassen" /><span class="ov">◎</span></a>
-        <a class="ig-item" href="https://instagram.com/salaokassencoiffure" target="_blank" rel="noreferrer" data-cursor="image"><img data-src="1487412947147-5cebf100ffc2" alt="Instagram Kassen" /><span class="ov">◎</span></a>
-      </div>
-    </div>
-  </section>
-
   <!-- FINAL CTA -->
   <section class="cta" id="contato">
     <div class="cta-bg"><img data-src="1522338242992-e1a54906a8da" alt="" /></div>
     <span class="cta-line-v"></span>
     <span class="cta-line-h"></span>
-    <div class="container cta-inner">
+    <div class="cta-inner">
       <h2>
-        <span class="mask"><span>Your moment</span></span>
-        <span class="mask"><span><em>starts here.</em></span></span>
+        <span class="mask"><span>Seu momento</span></span>
+        <span class="mask"><span><em>começa aqui.</em></span></span>
       </h2>
       <p class="sub">Reserve um tempo para você.</p>
       <div class="cta-actions">
@@ -636,7 +560,7 @@
   <div class="container foot-grid">
     <div>
       <p class="big">KASSEN <b>COIFFURE</b></p>
-      <p style="margin-top:12px;letter-spacing:.1em">Beauty • Care • Experience</p>
+      <p style="margin-top:12px;letter-spacing:.1em">Beleza • Cuidado • Experiência</p>
     </div>
     <div>
       <p class="lbl">Contato</p>
@@ -747,8 +671,7 @@
   gsap.timeline({ scrollTrigger:{ trigger:".hero", start:"top top", end:"bottom top", scrub:true } })
     .to(".hero-img img", { scale:1.18, ease:"none" }, 0)
     .to(".hero h1", { yPercent:-32, opacity:0, ease:"none" }, 0)
-    .to(".hero-kicker,.hero-sub,.hero-scroll", { opacity:0, y:-30, ease:"none" }, 0)
-    .to(".hero-img::after", {}, 0);
+    .to(".hero-kicker,.hero-sub,.hero-scroll", { opacity:0, y:-30, ease:"none" }, 0);
 
   /* =========================================================
      EXPERIENCE — parallax + word reveal
@@ -858,17 +781,6 @@
   gsap.to("#marquee", { xPercent:-50, repeat:-1, duration:22, ease:"none" });
 
   /* =========================================================
-     GALLERY — varied parallax speeds + entry zoom
-  ========================================================= */
-  gsap.utils.toArray(".gal-item").forEach(function(el){
-    var s = parseFloat(el.getAttribute("data-speed")) || 1;
-    gsap.fromTo(el, { yPercent:10*s }, { yPercent:-10*s, ease:"none",
-      scrollTrigger:{ trigger:el, start:"top bottom", end:"bottom top", scrub:1 } });
-    gsap.from(el.querySelector("img"), { scale:1.3, duration:1.2, ease:"power3.out",
-      scrollTrigger:{ trigger:el, start:"top 90%" } });
-  });
-
-  /* =========================================================
      BEFORE / AFTER — drag slider + entry
   ========================================================= */
   (function(){
@@ -910,12 +822,6 @@
       if(i < steps.length - 1) tl.to(el, { opacity:0, y:-60, filter:"blur(12px)", duration:0.5 }, i + 0.5);
     });
   })();
-
-  /* =========================================================
-     INSTAGRAM — staggered scale-in
-  ========================================================= */
-  gsap.from(".ig-item", { y:60, opacity:0, scale:0.94, duration:0.8, stagger:0.08, ease:"power3.out",
-    scrollTrigger:{ trigger:"#igGrid", start:"top 84%" } });
 
   /* =========================================================
      FINAL CTA — cinematic arrival
