@@ -28,7 +28,7 @@
     -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
   }
   h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.02}
-  img{display:block;max-width:100%;height:100%;object-fit:cover}
+  img{display:block;width:100%;max-width:100%;height:100%;object-fit:cover}
   a{color:inherit;text-decoration:none}
   ::selection{background:var(--gold);color:#fff}
   section{position:relative}
@@ -230,18 +230,7 @@
   .ba{background:var(--bege);padding:clamp(6rem,12vw,9rem) 0}
   .ba h2{font-size:clamp(2.5rem,6vw,4.5rem)}
   .ba h2 em{font-style:italic;color:var(--gold)}
-  .ba-box{position:relative;margin-top:48px;aspect-ratio:16/10;overflow:hidden;border:1px solid rgba(188,156,99,.25);
-    touch-action:none;user-select:none;cursor:ew-resize}
-  .ba-layer{position:absolute;inset:0}
-  .ba-before{overflow:hidden}
-  .ba-tag{position:absolute;bottom:16px;padding:4px 12px;border-radius:999px;background:rgba(59,44,34,.7);
-    color:var(--offwhite);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
-  .ba-tag.l{left:16px} .ba-tag.r{right:16px}
-  .ba-handle{position:absolute;top:0;bottom:0;width:1px;background:var(--gold);transform:scaleY(0);transform-origin:top}
-  .ba-handle span{position:absolute;left:50%;top:50%;width:44px;height:44px;transform:translate(-50%,-50%);
-    border:1px solid var(--gold);border-radius:50%;background:var(--offwhite);color:var(--gold);
-    display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px -10px rgba(59,44,34,.4)}
-  .ba-hint{margin-top:16px;text-align:center;font-size:12px;letter-spacing:.14em;color:rgba(59,44,34,.5)}
+  .ba-box{position:relative;margin-top:48px;aspect-ratio:1408/768;overflow:hidden;border:1px solid rgba(188,156,99,.25)}
 
   /* ---------- testimonials ---------- */
   .tst{background:var(--cocoa);color:var(--offwhite)}
@@ -514,11 +503,8 @@
         <span class="mask"><span><em>transformação.</em></span></span>
       </h2>
       <div class="ba-box" id="baBox">
-        <div class="ba-layer ba-after"><img data-src="1560066984-138dadb4c035" alt="Depois" /><span class="ba-tag r">Depois</span></div>
-        <div class="ba-layer ba-before" id="baBefore"><img data-src="1519014816548-bf5fe059798b" alt="Antes" /><span class="ba-tag l">Antes</span></div>
-        <div class="ba-handle" id="baHandle"><span>&#8646;</span></div>
+        <img data-src="assets/antes-depois.jpg" alt="Antes e depois — Kassen Coiffure" />
       </div>
-      <p class="ba-hint">Arraste para revelar</p>
     </div>
   </section>
 
@@ -779,30 +765,11 @@
   gsap.to("#marquee", { xPercent:-50, repeat:-1, duration:22, ease:"none" });
 
   /* =========================================================
-     BEFORE / AFTER — drag slider + entry
+     BEFORE / AFTER — entrada
   ========================================================= */
   (function(){
-    var box = document.getElementById("baBox");
-    var before = document.getElementById("baBefore");
-    var handle = document.getElementById("baHandle");
-    var dragging = false;
-    function set(x){
-      var r = box.getBoundingClientRect();
-      var p = Math.min(96, Math.max(4, ((x - r.left) / r.width) * 100));
-      before.style.clipPath = "inset(0 " + (100 - p) + "% 0 0)";
-      handle.style.left = p + "%";
-    }
-    set(box.getBoundingClientRect().left + box.getBoundingClientRect().width / 2);
-    box.addEventListener("pointerdown", function(e){ dragging = true; set(e.clientX); });
-    addEventListener("pointermove", function(e){ if(dragging) set(e.clientX); });
-    addEventListener("pointerup", function(){ dragging = false; });
-
-    gsap.from(".ba-before", { xPercent:-10, opacity:0, duration:1, ease:"power3.out",
+    gsap.from(".ba-box", { scale:0.94, opacity:0, duration:1, ease:"power3.out",
       scrollTrigger:{ trigger:".ba", start:"top 76%" } });
-    gsap.from(".ba-after", { xPercent:10, opacity:0, duration:1, ease:"power3.out",
-      scrollTrigger:{ trigger:".ba", start:"top 76%" } });
-    gsap.to(".ba-handle", { scaleY:1, duration:0.9, ease:"power2.out",
-      scrollTrigger:{ trigger:".ba", start:"top 70%" } });
     gsap.from(".ba h2 .mask > *", { yPercent:115, stagger:0.1, duration:0.9, ease:"power4.out",
       scrollTrigger:{ trigger:".ba h2", start:"top 84%" } });
   })();
