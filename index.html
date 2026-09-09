@@ -28,7 +28,7 @@
     -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
   }
   h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.02}
-  img{display:block;max-width:100%;height:100%;object-fit:cover}
+  img{display:block;width:100%;max-width:100%;height:100%;object-fit:cover}
   a{color:inherit;text-decoration:none}
   ::selection{background:var(--gold);color:#fff}
   section{position:relative}
@@ -171,7 +171,7 @@
   .hair h2{text-align:center;font-size:clamp(4rem,15vw,9rem)}
   .hair h2 em{font-style:italic;color:var(--gold-soft)}
   .hair-word{position:absolute;font-family:var(--serif);font-size:clamp(1.8rem,5vw,3rem);
-    text-transform:uppercase;letter-spacing:.1em;color:var(--gold-soft);opacity:0}
+    text-transform:uppercase;letter-spacing:.1em;color:var(--offwhite);opacity:0}
   .hair-word.w1{left:6vw;top:20%}
   .hair-word.w2{right:8vw;top:34%}
   .hair-word.w3{left:12vw;bottom:28%}
@@ -216,7 +216,7 @@
   .products .intro{margin-top:24px;max-width:28rem;color:var(--cocoa-soft)}
   .prod-grid{margin-top:56px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
   @media(min-width:1024px){ .prod-grid{grid-template-columns:repeat(4,1fr);gap:24px} }
-  .prod-card .pic{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--offwhite)}
+  .prod-card .pic{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--cocoa)}
   .prod-card .pic img{object-fit:contain;padding:12%;box-sizing:border-box;transition:transform .7s var(--ease)}
   .prod-card:hover .pic img{transform:scale(1.05)}
   .prod-card .brand{margin-top:12px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
@@ -230,13 +230,14 @@
   .ba{background:var(--bege);padding:clamp(6rem,12vw,9rem) 0}
   .ba h2{font-size:clamp(2.5rem,6vw,4.5rem)}
   .ba h2 em{font-style:italic;color:var(--gold)}
-  .ba-box{position:relative;margin-top:48px;aspect-ratio:16/10;overflow:hidden;border:1px solid rgba(188,156,99,.25);
-    touch-action:none;user-select:none;cursor:ew-resize}
+  .ba-box{position:relative;margin-top:48px;aspect-ratio:4/5;max-width:640px;margin-left:auto;margin-right:auto;
+    overflow:hidden;border:1px solid rgba(188,156,99,.25);touch-action:none;user-select:none;cursor:ew-resize}
   .ba-layer{position:absolute;inset:0}
-  .ba-before{overflow:hidden}
-  .ba-tag{position:absolute;bottom:16px;padding:4px 12px;border-radius:999px;background:rgba(59,44,34,.7);
-    color:var(--offwhite);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+  .ba-layer img{object-position:bottom}
+  .ba-tag{position:absolute;top:16px;padding:4px 12px;border-radius:999px;background:rgba(59,44,34,.7);
+    color:var(--offwhite);font-size:10px;letter-spacing:.14em;text-transform:uppercase;z-index:2}
   .ba-tag.l{left:16px} .ba-tag.r{right:16px}
+  .ba-before{overflow:hidden}
   .ba-handle{position:absolute;top:0;bottom:0;width:1px;background:var(--gold);transform:scaleY(0);transform-origin:top}
   .ba-handle span{position:absolute;left:50%;top:50%;width:44px;height:44px;transform:translate(-50%,-50%);
     border:1px solid var(--gold);border-radius:50%;background:var(--offwhite);color:var(--gold);
@@ -261,11 +262,18 @@
     overflow:hidden;background:var(--cocoa);color:var(--offwhite);text-align:center}
   .cta-bg{position:absolute;inset:0}
   .cta-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
-  .cta::after{content:"";position:absolute;left:0;right:0;bottom:0;height:38%;z-index:5;
-    background:linear-gradient(to top,rgba(61,36,28,.75),transparent);pointer-events:none}
+  .cta::after{content:"";position:absolute;left:0;right:0;bottom:0;height:58%;z-index:5;
+    background:linear-gradient(to top,rgba(61,36,28,.8),transparent);pointer-events:none}
   .cta-inner{position:relative;z-index:10;width:100%;max-width:60rem;margin:0 auto;
     display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
     height:100%;padding:6rem clamp(1.75rem,6vw,3rem)}
+  .cta-info{display:flex;flex-direction:column;align-items:center;gap:24px;margin-bottom:40px;color:var(--offwhite)}
+  @media(min-width:640px){ .cta-info{flex-direction:row;gap:64px} }
+  .cta-info-lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:6px}
+  .cta-info-block p,.cta-info-block a{color:var(--offwhite)}
+  .cta-info-block.reveal,.cta-actions a.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .cta-info-block.reveal.in,.cta-actions a.reveal.in{opacity:1;transform:translateY(0)}
+  .cta-info-role{margin-top:4px;font-size:11px;letter-spacing:.1em;color:rgba(246,241,232,.65)}
   .cta-actions{display:flex;flex-direction:column;align-items:center;gap:16px;width:100%}
   @media(min-width:640px){ .cta-actions{flex-direction:row;justify-content:center} }
   .cta-actions a{width:100%;text-align:center;border-radius:999px;padding:16px 32px;
@@ -278,10 +286,6 @@
 
   /* ---------- footer ---------- */
   footer.site{background:var(--bege);border-top:1px solid rgba(188,156,99,.2)}
-  .foot-grid{display:grid;gap:40px;padding:64px 0}
-  @media(min-width:768px){ .foot-grid{grid-template-columns:repeat(3,1fr)} }
-  .foot-grid .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cocoa);margin-bottom:8px}
-  .foot-grid p,.foot-grid a{font-size:.9rem;color:var(--cocoa-soft)}
   .foot-logo{height:44px;width:auto}
   .foot-bottom{border-top:1px solid rgba(188,156,99,.15);padding:24px 0;display:flex;flex-direction:column;
     gap:12px;align-items:center;justify-content:space-between;font-size:12px;color:rgba(59,44,34,.5)}
@@ -461,20 +465,20 @@
       </div>
       <div class="prod-grid" id="prodGrid">
         <article class="prod-card" data-cursor="product" data-label="Ver">
-          <div class="pic"><img data-src="assets/produto-oleo-ritual.png" alt="Keune Absolute Volume" /></div>
+          <div class="pic"><img data-src="assets/produto-absolute-volume.png" alt="Keune Absolute Volume" /></div>
           <p class="brand">Keune</p><p class="name">Absolute Volume</p>
         </article>
         <article class="prod-card" data-cursor="product" data-label="Ver">
-          <div class="pic"><img data-src="assets/produto-shampoo.png" alt="Keune Long & Strong" /></div>
+          <div class="pic"><img data-src="assets/produto-long-strong.png" alt="Keune Long & Strong" /></div>
           <p class="brand">Keune</p><p class="name">Long &amp; Strong</p>
         </article>
         <article class="prod-card" data-cursor="product" data-label="Ver">
-          <div class="pic"><img data-src="assets/produto-mascara.png" alt="Keune Radiant Gloss" /></div>
+          <div class="pic"><img data-src="assets/produto-radiant-gloss.png" alt="Keune Radiant Gloss" /></div>
           <p class="brand">Keune</p><p class="name">Radiant Gloss</p>
         </article>
         <article class="prod-card" data-cursor="product" data-label="Ver">
-          <div class="pic"><img data-src="assets/produto-vital-nutrition.png" alt="Keune Vital Nutrition" /></div>
-          <p class="brand">Keune</p><p class="name">Vital Nutrition</p>
+          <div class="pic"><img data-src="assets/produto-color-brillianz.png" alt="Keune Color Brillianz" /></div>
+          <p class="brand">Keune</p><p class="name">Color Brillianz</p>
         </article>
       </div>
       <div class="marquee"><div class="marquee-in" id="marquee">
@@ -490,7 +494,7 @@
       <div class="container stage-grid">
         <div class="p3d-stage" id="p3dTilt">
           <div class="p3d-glow"></div>
-          <div class="p3d-obj"><img data-src="assets/produto-3d.png" alt="Keune Absolute Volume" /></div>
+          <div class="p3d-obj"><img data-src="assets/produto-absolute-volume.png" alt="Keune Absolute Volume" /></div>
         </div>
         <div>
           <p class="kicker" style="color:var(--gold-soft)">Os produtos Kassen</p>
@@ -514,8 +518,8 @@
         <span class="mask"><span><em>transformação.</em></span></span>
       </h2>
       <div class="ba-box" id="baBox">
-        <div class="ba-layer ba-after"><img data-src="1560066984-138dadb4c035" alt="Depois" /><span class="ba-tag r">Depois</span></div>
-        <div class="ba-layer ba-before" id="baBefore"><img data-src="1519014816548-bf5fe059798b" alt="Antes" /><span class="ba-tag l">Antes</span></div>
+        <div class="ba-layer ba-after"><img data-src="assets/antes-depois-depois.jpg" alt="Depois" /><span class="ba-tag r">Depois</span></div>
+        <div class="ba-layer ba-before" id="baBefore"><img data-src="assets/antes-depois-antes.jpg" alt="Antes" /><span class="ba-tag l">Antes</span></div>
         <div class="ba-handle" id="baHandle"><span>&#8646;</span></div>
       </div>
       <p class="ba-hint">Arraste para revelar</p>
@@ -541,6 +545,18 @@
   <section class="cta" id="contato">
     <div class="cta-bg"><img data-src="assets/cta-cadeira.jpg" alt="Cadeira do salão Kassen Coiffure" /></div>
     <div class="cta-inner">
+      <div class="cta-info">
+        <div class="cta-info-block">
+          <p class="cta-info-lbl">Contato</p>
+          <p>(16) 3203-7469</p>
+        </div>
+        <div class="cta-info-block">
+          <p class="cta-info-lbl">Social</p>
+          <a href="https://www.instagram.com/salaokassencoiffure/" target="_blank" rel="noreferrer" data-cursor="link">@salaokassencoiffure</a>
+          <p class="cta-info-role">Cabeleireiro &amp; proprietário</p>
+          <a href="https://www.instagram.com/alehairstylist.ugc/" target="_blank" rel="noreferrer" data-cursor="link">@alehairstylist.ugc</a>
+        </div>
+      </div>
       <div class="cta-actions">
         <a href="https://www.instagram.com/salaokassencoiffure/" target="_blank" rel="noreferrer" class="primary" data-cursor="button">Agendar horário</a>
         <a href="https://wa.me/551632037469" target="_blank" rel="noreferrer" class="ghost" data-cursor="button">Falar no WhatsApp</a>
@@ -550,21 +566,9 @@
 </main>
 
 <footer class="site">
-  <div class="container foot-grid">
-    <div>
-      <img src="assets/logo-preta.png" alt="Kassen Coiffure" class="foot-logo" />
-      <p style="margin-top:12px;letter-spacing:.1em">Beleza • Cuidado • Experiência</p>
-    </div>
-    <div>
-      <p class="lbl">Contato</p>
-      <p>(16) 3203-7469</p>
-    </div>
-    <div>
-      <p class="lbl">Social</p>
-      <a href="https://www.instagram.com/salaokassencoiffure/" target="_blank" rel="noreferrer" data-cursor="link">@salaokassencoiffure</a>
-      <p style="margin-top:6px;font-size:11px;letter-spacing:.1em;color:var(--gold)">Cabeleireiro &amp; proprietário</p>
-      <a href="https://www.instagram.com/alehairstylist.ugc/" target="_blank" rel="noreferrer" data-cursor="link">@alehairstylist.ugc</a>
-    </div>
+  <div class="container" style="padding:40px 0 0;text-align:center">
+    <img src="assets/logo-preta.png" alt="Kassen Coiffure" class="foot-logo" />
+    <p style="margin-top:12px;letter-spacing:.1em">Beleza • Cuidado • Experiência</p>
   </div>
   <div class="container foot-bottom">
     <p>© <span id="year"></span> Kassen Coiffure. Todos os direitos reservados.</p>
@@ -826,8 +830,23 @@
   ========================================================= */
   gsap.fromTo(".cta-bg img", { scale:1.25 }, { scale:1, ease:"none",
     scrollTrigger:{ trigger:".cta", start:"top 85%", end:"bottom bottom", scrub:1 } });
-  gsap.from(".cta-actions a", { y:30, opacity:0, duration:0.9, stagger:0.12, ease:"power3.out",
-    scrollTrigger:{ trigger:".cta-actions", start:"top 88%" } });
+  /* elementos bem no fim do documento: ScrollTrigger pode não disparar de forma
+     confiável quando o "end" calculado ultrapassa o scroll máximo da página,
+     então a revelação final usa IntersectionObserver nativo em vez de scrollTrigger */
+  (function(){
+    var els = document.querySelectorAll(".cta-info-block, .cta-actions a");
+    if(!window.IntersectionObserver){ return; }
+    els.forEach(function(el){ el.classList.add("reveal"); });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry, i){
+        if(entry.isIntersecting){
+          setTimeout(function(){ entry.target.classList.add("in"); }, i * 100);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    els.forEach(function(el){ io.observe(el); });
+  })();
 
   window.addEventListener("load", function(){ ScrollTrigger.refresh(); });
 })();
