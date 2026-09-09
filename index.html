@@ -13,8 +13,9 @@
 
 <style>
   :root{
-    --offwhite:#F6F1E8; --bege:#E8DBC7; --nude:#DFC9B4; --champagne:#F0E4D0;
-    --gold:#BC9C63; --gold-soft:#D8C199; --cocoa:#3B2C22; --cocoa-soft:#6C594A;
+    /* Paleta Kassen Coiffure — Malva Suave-Terracota + Branco Puro + contraste escuro */
+    --offwhite:#FAF7F5; --bege:#F0E2DA; --nude:#E6D0C6; --champagne:#F4E9E2;
+    --gold:#A67E6F; --gold-soft:#C4A398; --cocoa:#3D241C; --cocoa-soft:#7A5647;
     --serif:"Fraunces",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
     --ease:cubic-bezier(.22,1,.36,1);
   }
@@ -59,9 +60,11 @@
     border-bottom:1px solid transparent}
   .hdr.solid{background:rgba(246,241,232,.72);backdrop-filter:blur(10px);border-bottom-color:rgba(188,156,99,.2);padding:12px 0}
   .hdr .row{display:flex;align-items:center;justify-content:space-between;gap:24px}
-  .brand{font-family:var(--serif);font-size:17px;letter-spacing:.14em;color:var(--offwhite);transition:color .4s}
-  .hdr.solid .brand{color:var(--cocoa)}
-  .brand b{font-weight:400;color:var(--gold)}
+  .brand{display:flex;align-items:center}
+  .brand-logo{height:38px;width:auto;transition:opacity .3s}
+  .brand-logo-dark{display:none}
+  .hdr.solid .brand-logo-light{display:none}
+  .hdr.solid .brand-logo-dark{display:block}
   .nav{display:none;gap:32px}
   .nav a{position:relative;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,241,232,.82);transition:color .3s}
   .hdr.solid .nav a{color:var(--cocoa-soft)}
@@ -200,8 +203,8 @@
   @media(min-width:1024px){ .p3d-stage{width:100%;max-width:420px} }
   .p3d-glow{position:absolute;inset:0;z-index:-1;filter:blur(40px);
     background:radial-gradient(circle at 50% 35%,rgba(216,193,153,.55),transparent 70%)}
-  .p3d-obj{position:relative;height:100%;overflow:hidden;border-radius:3px;
-    box-shadow:0 40px 80px -20px rgba(0,0,0,.6);transform-style:preserve-3d;transition:transform .2s ease-out}
+  .p3d-obj{position:relative;height:100%;transform-style:preserve-3d;transition:transform .2s ease-out}
+  .p3d-obj img{object-fit:contain;filter:drop-shadow(0 40px 50px rgba(0,0,0,.55))}
   .p3d-cta{display:inline-flex;align-items:center;gap:12px;margin-top:32px;
     font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-soft);opacity:0}
   .p3d-cta i{display:block;width:48px;height:1px;background:var(--gold-soft)}
@@ -214,7 +217,7 @@
   .prod-grid{margin-top:56px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
   @media(min-width:1024px){ .prod-grid{grid-template-columns:repeat(4,1fr);gap:24px} }
   .prod-card .pic{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--offwhite)}
-  .prod-card .pic img{transition:transform .7s var(--ease)}
+  .prod-card .pic img{object-fit:contain;padding:12%;box-sizing:border-box;transition:transform .7s var(--ease)}
   .prod-card:hover .pic img{transform:scale(1.05)}
   .prod-card .brand{margin-top:12px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
   .prod-card .name{font-family:var(--serif);font-size:1.1rem}
@@ -256,18 +259,14 @@
   /* ---------- final cta ---------- */
   .cta{min-height:100svh;display:flex;align-items:center;justify-content:center;
     overflow:hidden;background:var(--cocoa);color:var(--offwhite);text-align:center}
-  .cta-bg{position:absolute;inset:0;opacity:.4}
+  .cta-bg{position:absolute;inset:0}
   .cta-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
-  .cta-line-v{position:absolute;left:24px;top:0;bottom:0;width:1px;background:rgba(188,156,99,.35);transform:scaleY(0);transform-origin:top}
-  @media(min-width:768px){ .cta-line-v{left:64px} }
-  .cta-line-h{position:absolute;left:0;right:0;top:50%;border-top:1px solid rgba(188,156,99,.22);transform:scaleX(0);transform-origin:left}
+  .cta::after{content:"";position:absolute;left:0;right:0;bottom:0;height:38%;z-index:5;
+    background:linear-gradient(to top,rgba(61,36,28,.75),transparent);pointer-events:none}
   .cta-inner{position:relative;z-index:10;width:100%;max-width:60rem;margin:0 auto;
-    display:flex;flex-direction:column;align-items:center;
-    padding:6rem clamp(1.75rem,6vw,3rem)}
-  .cta h2{font-size:clamp(2.5rem,11vw,7rem);overflow-wrap:break-word}
-  .cta h2 em{font-style:italic;color:var(--gold-soft)}
-  .cta .sub{margin-top:24px;color:rgba(246,241,232,.75)}
-  .cta-actions{margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:16px;width:100%}
+    display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+    height:100%;padding:6rem clamp(1.75rem,6vw,3rem)}
+  .cta-actions{display:flex;flex-direction:column;align-items:center;gap:16px;width:100%}
   @media(min-width:640px){ .cta-actions{flex-direction:row;justify-content:center} }
   .cta-actions a{width:100%;text-align:center;border-radius:999px;padding:16px 32px;
     font-size:11px;letter-spacing:.3em;text-transform:uppercase;transition:all .3s var(--ease)}
@@ -283,8 +282,7 @@
   @media(min-width:768px){ .foot-grid{grid-template-columns:repeat(3,1fr)} }
   .foot-grid .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cocoa);margin-bottom:8px}
   .foot-grid p,.foot-grid a{font-size:.9rem;color:var(--cocoa-soft)}
-  .foot-grid .big{font-family:var(--serif);font-size:1.5rem;color:var(--cocoa)}
-  .foot-grid .big b{font-weight:400;color:var(--gold)}
+  .foot-logo{height:44px;width:auto}
   .foot-bottom{border-top:1px solid rgba(188,156,99,.15);padding:24px 0;display:flex;flex-direction:column;
     gap:12px;align-items:center;justify-content:space-between;font-size:12px;color:rgba(59,44,34,.5)}
   @media(min-width:768px){ .foot-bottom{flex-direction:row} }
@@ -296,8 +294,7 @@
   .no-anim .hero-mask,
   .no-anim .hair h2 .mask > *,
   .no-anim .exp h2 .mask > *,
-  .no-anim .ba h2 .mask > *,
-  .no-anim .cta h2 .mask > *{clip-path:none!important;transform:none!important}
+  .no-anim .ba h2 .mask > *{clip-path:none!important;transform:none!important}
   .no-anim .hero-mask{clip-path:none!important}
   .no-anim .hair-word,
   .no-anim .swap-step,
@@ -318,7 +315,10 @@
 
 <header class="hdr">
   <div class="container row">
-    <a href="#hero" class="brand" data-cursor="link">KASSEN <b>COIFFURE</b></a>
+    <a href="#hero" class="brand" data-cursor="link">
+      <img src="assets/logo-branca.png" class="brand-logo brand-logo-light" alt="Kassen Coiffure" />
+      <img src="assets/logo-preta.png" class="brand-logo brand-logo-dark" alt="Kassen Coiffure" />
+    </a>
     <nav class="nav">
       <a href="#hero" data-cursor="link">Início</a>
       <a href="#servicos" data-cursor="link">Serviços</a>
@@ -375,8 +375,8 @@
         <p class="exp-copy">Mais do que um salão, um espaço para cuidar de você, transformar sua beleza e viver cada momento.</p>
       </div>
       <div class="media">
-        <div class="exp-img-1"><img data-src="1522337660859-02fbefca4702" alt="Atendimento no Kassen Coiffure" /></div>
-        <div class="exp-img-2"><img data-src="1519699047748-de8e457a634e" alt="Detalhe de beleza" /></div>
+        <div class="exp-img-1"><img data-src="assets/experiencia.jpg" alt="Cabelo Kassen Coiffure" /></div>
+        <div class="exp-img-2"><img data-src="assets/experiencia.jpg" alt="Detalhe de cabelo Kassen Coiffure" /></div>
         <span class="exp-gold"></span>
       </div>
     </div>
@@ -395,7 +395,7 @@
         <div class="svc-body"><span class="n">01</span><h3>Cabelos</h3><p>Corte, coloração, escova, finalização e tratamentos.</p></div>
       </article>
       <article class="svc-card" data-cursor="image">
-        <div class="svc-media"><img data-src="1633681926035-ec1ac984418a" alt="Tratamentos capilares" />
+        <div class="svc-media"><img data-src="assets/servicos-tratamentos-capilares.jpg" alt="Tratamentos capilares" />
           <span class="svc-corner tl"></span><span class="svc-corner br"></span></div>
         <div class="svc-body"><span class="n">02</span><h3>Tratamentos Capilares</h3><p>Hidratação, nutrição, reconstrução e cuidados profissionais.</p></div>
       </article>
@@ -414,7 +414,7 @@
 
   <!-- HAIR EDITORIAL -->
   <section class="hair" id="hair">
-    <div class="hair-media"><img data-src="1595476108010-b4d1f102b1b1" alt="Editorial de cabelo" /></div>
+    <div class="hair-media"><img data-src="assets/hair-editorial.jpg" alt="Interior do salão Kassen Coiffure" /></div>
     <div class="hair-inner">
       <h2>
         <span class="mask"><span>Cabelo</span></span>
@@ -433,7 +433,7 @@
       <div class="container stage-grid">
         <div class="trt-media">
           <div class="trt-back"><img data-src="1512290923902-8a9f81dc236c" alt="Cuidados com a pele" /></div>
-          <div class="trt-front"><img data-src="1633681926022-84c23e8cb2d6" alt="Tratamento capilar" /></div>
+          <div class="trt-front"><img data-src="assets/tratamentos.jpg" alt="Sala de tratamentos Kassen Coiffure" /></div>
           <span class="trt-gold"></span>
         </div>
         <div>
@@ -461,25 +461,25 @@
       </div>
       <div class="prod-grid" id="prodGrid">
         <article class="prod-card" data-cursor="product" data-label="Ver">
-          <div class="pic"><img data-src="1631730359585-38a4935cbec4" alt="Óleo Ritual Kassen" /></div>
-          <p class="brand">Kassen Select</p><p class="name">Óleo Ritual Kassen</p>
+          <div class="pic"><img data-src="assets/produto-oleo-ritual.png" alt="Keune Absolute Volume" /></div>
+          <p class="brand">Keune</p><p class="name">Absolute Volume</p>
         </article>
         <article class="prod-card" data-cursor="product" data-label="Ver">
-          <div class="pic"><img data-src="1598887142487-3c854d51d185" alt="Shampoo Reparador" /></div>
-          <p class="brand">Keune</p><p class="name">Shampoo Reparador</p>
+          <div class="pic"><img data-src="assets/produto-shampoo.png" alt="Keune Long & Strong" /></div>
+          <p class="brand">Keune</p><p class="name">Long &amp; Strong</p>
         </article>
         <article class="prod-card" data-cursor="product" data-label="Ver">
-          <div class="pic"><img data-src="1585232351009-aa87416fca90" alt="Leave-in Sedoso" /></div>
-          <p class="brand">Keune</p><p class="name">Leave-in Sedoso</p>
+          <div class="pic"><img data-src="assets/produto-mascara.png" alt="Keune Radiant Gloss" /></div>
+          <p class="brand">Keune</p><p class="name">Radiant Gloss</p>
         </article>
         <article class="prod-card" data-cursor="product" data-label="Ver">
-          <div class="pic"><img data-src="1620916566398-39f1143ab7be" alt="Sérum Facial Iluminador" /></div>
-          <p class="brand">Kassen Select</p><p class="name">Sérum Facial Iluminador</p>
+          <div class="pic"><img data-src="assets/produto-vital-nutrition.png" alt="Keune Vital Nutrition" /></div>
+          <p class="brand">Keune</p><p class="name">Vital Nutrition</p>
         </article>
       </div>
       <div class="marquee"><div class="marquee-in" id="marquee">
-        <span>Kassen Select</span><span>Keune</span><span>Linha Profissional</span><span>Coloração</span><span>Kassen Casa</span>
-        <span>Kassen Select</span><span>Keune</span><span>Linha Profissional</span><span>Coloração</span><span>Kassen Casa</span>
+        <span>Keune</span><span>Linha Profissional</span><span>Coloração</span><span>Kassen Coiffure</span>
+        <span>Keune</span><span>Linha Profissional</span><span>Coloração</span><span>Kassen Coiffure</span>
       </div></div>
     </div>
   </section>
@@ -490,7 +490,7 @@
       <div class="container stage-grid">
         <div class="p3d-stage" id="p3dTilt">
           <div class="p3d-glow"></div>
-          <div class="p3d-obj"><img data-src="1608248543803-ba4f8c70ae0b" alt="Produto profissional Kassen" /></div>
+          <div class="p3d-obj"><img data-src="assets/produto-3d.png" alt="Keune Absolute Volume" /></div>
         </div>
         <div>
           <p class="kicker" style="color:var(--gold-soft)">Os produtos Kassen</p>
@@ -539,18 +539,11 @@
 
   <!-- FINAL CTA -->
   <section class="cta" id="contato">
-    <div class="cta-bg"><img data-src="1522338242992-e1a54906a8da" alt="" /></div>
-    <span class="cta-line-v"></span>
-    <span class="cta-line-h"></span>
+    <div class="cta-bg"><img data-src="assets/cta-cadeira.jpg" alt="Cadeira do salão Kassen Coiffure" /></div>
     <div class="cta-inner">
-      <h2>
-        <span class="mask"><span>Seu momento</span></span>
-        <span class="mask"><span><em>começa aqui.</em></span></span>
-      </h2>
-      <p class="sub">Reserve um tempo para você.</p>
       <div class="cta-actions">
-        <a href="#" class="primary" data-cursor="button">Agendar horário</a>
-        <a href="https://wa.me/5500000000000" target="_blank" rel="noreferrer" class="ghost" data-cursor="button">Falar no WhatsApp</a>
+        <a href="https://www.instagram.com/salaokassencoiffure/" target="_blank" rel="noreferrer" class="primary" data-cursor="button">Agendar horário</a>
+        <a href="https://wa.me/551632037469" target="_blank" rel="noreferrer" class="ghost" data-cursor="button">Falar no WhatsApp</a>
       </div>
     </div>
   </section>
@@ -559,18 +552,18 @@
 <footer class="site">
   <div class="container foot-grid">
     <div>
-      <p class="big">KASSEN <b>COIFFURE</b></p>
+      <img src="assets/logo-preta.png" alt="Kassen Coiffure" class="foot-logo" />
       <p style="margin-top:12px;letter-spacing:.1em">Beleza • Cuidado • Experiência</p>
     </div>
     <div>
       <p class="lbl">Contato</p>
-      <p>Rua Exemplo, 123 — Sua Cidade</p>
-      <p>+55 (00) 0000-0000</p>
-      <p>ola@kassencoiffure.com</p>
+      <p>(16) 3203-7469</p>
     </div>
     <div>
       <p class="lbl">Social</p>
-      <a href="https://instagram.com/salaokassencoiffure" target="_blank" rel="noreferrer" data-cursor="link">@salaokassencoiffure</a>
+      <a href="https://www.instagram.com/salaokassencoiffure/" target="_blank" rel="noreferrer" data-cursor="link">@salaokassencoiffure</a>
+      <p style="margin-top:6px;font-size:11px;letter-spacing:.1em;color:var(--gold)">Cabeleireiro &amp; proprietário</p>
+      <a href="https://www.instagram.com/alehairstylist.ugc/" target="_blank" rel="noreferrer" data-cursor="link">@alehairstylist.ugc</a>
     </div>
   </div>
   <div class="container foot-bottom">
@@ -585,12 +578,17 @@
 (function(){
   "use strict";
 
-  /* ---------- images (Unsplash placeholders — troque aqui) ---------- */
+  /* ---------- images (fotos reais em /assets; Unsplash só como placeholder nas seções pendentes) ---------- */
   var U = function(id, w){ return "https://images.unsplash.com/photo-" + id + "?auto=format&fit=crop&w=" + (w||1500) + "&q=80"; };
   document.getElementById("heroImg").src = U("1560066984-138dadb4c035", 2200);
   document.querySelectorAll("img[data-src]").forEach(function(img){
-    var big = img.closest(".hair-media,.cta-bg,.trt-media");
-    img.src = U(img.getAttribute("data-src"), big ? 2000 : 1400);
+    var src = img.getAttribute("data-src");
+    if(src.indexOf("assets/") === 0){
+      img.src = src;
+    } else {
+      var big = img.closest(".hair-media,.cta-bg,.trt-media");
+      img.src = U(src, big ? 2000 : 1400);
+    }
     img.loading = "lazy";
   });
   document.getElementById("year").textContent = new Date().getFullYear();
@@ -826,13 +824,9 @@
   /* =========================================================
      FINAL CTA — cinematic arrival
   ========================================================= */
-  gsap.timeline({ scrollTrigger:{ trigger:".cta", start:"top 85%", end:"bottom bottom", scrub:1 } })
-    .fromTo(".cta-bg", { scale:1.25 }, { scale:1, ease:"none" }, 0)
-    .fromTo(".cta-line-v", { scaleY:0 }, { scaleY:1, ease:"none" }, 0)
-    .fromTo(".cta-line-h", { scaleX:0 }, { scaleX:1, ease:"none" }, 0);
-  gsap.from(".cta h2 .mask > *", { yPercent:120, duration:1.1, stagger:0.12, ease:"power4.out",
-    scrollTrigger:{ trigger:".cta h2", start:"top 82%" } });
-  gsap.from(".cta .sub, .cta-actions a", { y:30, opacity:0, duration:0.9, stagger:0.12, ease:"power3.out",
+  gsap.fromTo(".cta-bg img", { scale:1.25 }, { scale:1, ease:"none",
+    scrollTrigger:{ trigger:".cta", start:"top 85%", end:"bottom bottom", scrub:1 } });
+  gsap.from(".cta-actions a", { y:30, opacity:0, duration:0.9, stagger:0.12, ease:"power3.out",
     scrollTrigger:{ trigger:".cta-actions", start:"top 88%" } });
 
   window.addEventListener("load", function(){ ScrollTrigger.refresh(); });
