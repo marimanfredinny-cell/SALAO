@@ -61,7 +61,7 @@
   .hdr.solid{background:rgba(246,241,232,.72);backdrop-filter:blur(10px);border-bottom-color:rgba(188,156,99,.2);padding:12px 0}
   .hdr .row{display:flex;align-items:center;justify-content:space-between;gap:24px}
   .brand{display:flex;align-items:center}
-  .brand-logo{height:38px;width:auto;transition:opacity .3s}
+  .brand-logo{height:48px;width:auto;transition:opacity .3s}
   .brand-logo-dark{display:none}
   .hdr.solid .brand-logo-light{display:none}
   .hdr.solid .brand-logo-dark{display:block}
@@ -120,6 +120,8 @@
   .hero h1 .l2{font-style:italic;color:var(--gold-soft)}
   .hero-sub{margin-top:22px;font-size:clamp(9px,1.4vw,13px);letter-spacing:.22em;text-transform:uppercase}
   @media(min-width:640px){ .hero-sub{letter-spacing:.3em} }
+  .hero-logo-mobile{display:none}
+  @media(max-width:767px){ .hero-logo-mobile{display:block;width:150px;height:auto;margin:36px auto 0} }
   .hero-scroll{position:absolute;left:50%;bottom:32px;z-index:10;width:1px;height:56px;
     transform:translateX(-50%);background:rgba(246,241,232,.4);overflow:hidden}
   .hero-scroll i{position:absolute;left:0;top:0;display:block;width:1px;height:16px;background:var(--gold);animation:scrolldot 2.4s var(--ease) infinite}
@@ -170,12 +172,13 @@
   .hair-inner{position:relative;z-index:10;height:100%;display:flex;align-items:center;justify-content:center;padding:0 24px}
   .hair h2{text-align:center;font-size:clamp(4rem,15vw,9rem)}
   .hair h2 em{font-style:italic;color:var(--gold-soft)}
-  .hair-word{position:absolute;font-family:var(--serif);font-size:clamp(1.8rem,5vw,3rem);
-    text-transform:uppercase;letter-spacing:.1em;color:var(--offwhite);opacity:0}
-  .hair-word.w1{left:6vw;top:20%}
-  .hair-word.w2{right:8vw;top:34%}
-  .hair-word.w3{left:12vw;bottom:28%}
-  .hair-word.w4{right:10vw;bottom:16%}
+  .hair-word{position:absolute;font-family:var(--serif);font-size:clamp(1.4rem,3vw,2rem);
+    text-transform:uppercase;letter-spacing:.1em;color:var(--offwhite);opacity:0;
+    text-shadow:0 2px 12px rgba(0,0,0,.5)}
+  .hair-word.w1{left:5vw;top:12%}
+  .hair-word.w2{right:5vw;top:12%}
+  .hair-word.w3{left:5vw;bottom:12%}
+  .hair-word.w4{right:5vw;bottom:12%}
 
   /* ---------- sticky text-swap (treatments / product) — pin em todos os tamanhos ---------- */
   .sticky-stage{height:100svh;min-height:620px;display:flex;align-items:center;overflow:hidden;padding:0}
@@ -258,19 +261,24 @@
   .tst-dots i{display:block;width:56px;height:1px;background:rgba(216,193,153,.5)}
 
   /* ---------- final cta ---------- */
-  .cta{min-height:100svh;display:flex;align-items:center;justify-content:center;
+  .cta{min-height:100svh;display:flex;align-items:stretch;justify-content:center;
     overflow:hidden;background:var(--cocoa);color:var(--offwhite);text-align:center}
   .cta-bg{position:absolute;inset:0}
   .cta-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
-  .cta::after{content:"";position:absolute;left:0;right:0;bottom:0;height:58%;z-index:5;
+  .cta::after{content:"";position:absolute;left:0;right:0;bottom:0;height:32%;z-index:5;
     background:linear-gradient(to top,rgba(61,36,28,.8),transparent);pointer-events:none}
+  .cta::before{content:"";position:absolute;left:0;right:0;top:0;height:34%;z-index:5;
+    background:linear-gradient(to bottom,rgba(61,36,28,.75),transparent);pointer-events:none}
   .cta-inner{position:relative;z-index:10;width:100%;max-width:60rem;margin:0 auto;
-    display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+    display:flex;flex-direction:column;align-items:center;justify-content:space-between;
     height:100%;padding:6rem clamp(1.75rem,6vw,3rem)}
-  .cta-info{display:flex;flex-direction:column;align-items:center;gap:24px;margin-bottom:40px;color:var(--offwhite)}
-  @media(min-width:640px){ .cta-info{flex-direction:row;gap:64px} }
+  .cta-info{display:flex;flex-direction:row;justify-content:space-between;align-items:flex-start;
+    gap:16px;width:100%;margin-bottom:40px;color:var(--offwhite)}
+  .cta-info-block:first-child{text-align:left}
+  .cta-info-block:last-child{text-align:right}
   .cta-info-lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:6px}
-  .cta-info-block p,.cta-info-block a{color:var(--offwhite)}
+  .cta-info-block p,.cta-info-block a{color:var(--offwhite);font-size:.85rem}
+  @media(min-width:640px){ .cta-info-block p,.cta-info-block a{font-size:1rem} }
   .cta-info-block.reveal,.cta-actions a.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
   .cta-info-block.reveal.in,.cta-actions a.reveal.in{opacity:1;transform:translateY(0)}
   .cta-info-role{margin-top:4px;font-size:11px;letter-spacing:.1em;color:rgba(246,241,232,.65)}
@@ -281,8 +289,6 @@
   @media(min-width:640px){ .cta-actions a{width:auto} }
   .cta-actions .primary{background:var(--gold);color:var(--cocoa)}
   .cta-actions .primary:hover{transform:scale(1.03)}
-  .cta-actions .ghost{border:1px solid var(--gold);color:var(--offwhite)}
-  .cta-actions .ghost:hover{background:var(--gold);color:var(--cocoa)}
 
   /* ---------- footer ---------- */
   footer.site{background:var(--bege);border-top:1px solid rgba(188,156,99,.2)}
@@ -306,6 +312,7 @@
   .no-anim .p3d-cta,
   .no-anim .trt-back,
   .no-anim .hero-sub,
+  .no-anim .hero-logo-mobile,
   .no-anim .exp-img-2,
   .no-anim .exp-gold{opacity:1!important;transform:none!important}
   .no-anim .swap-step,
@@ -364,6 +371,7 @@
         <span class="mask"><span class="l2">Coiffure</span></span>
       </h1>
       <p class="hero-sub">Beleza • Cuidado • Experiência</p>
+      <img src="assets/logo-branca.png" alt="Kassen Coiffure" class="hero-logo-mobile" />
     </div>
     <div class="hero-scroll"><i></i></div>
   </section>
@@ -559,7 +567,6 @@
       </div>
       <div class="cta-actions">
         <a href="https://www.instagram.com/salaokassencoiffure/" target="_blank" rel="noreferrer" class="primary" data-cursor="button">Agendar horário</a>
-        <a href="https://wa.me/551632037469" target="_blank" rel="noreferrer" class="ghost" data-cursor="button">Falar no WhatsApp</a>
       </div>
     </div>
   </section>
@@ -668,12 +675,13 @@
     .from(".hero-kicker", { y:18, opacity:0, filter:"blur(8px)", duration:0.9 }, 0.7)
     .from(".hero h1 .mask > *", { yPercent:120, duration:1, stagger:0.12, ease:"power4.out" }, 0.85)
     .from(".hero-sub", { opacity:0, letterSpacing:"0.7em", duration:1 }, 1.15)
+    .from(".hero-logo-mobile", { opacity:0, y:18, duration:0.9 }, 1.3)
     .from(".hero-scroll", { opacity:0, y:-12, duration:0.8 }, 1.35);
 
   gsap.timeline({ scrollTrigger:{ trigger:".hero", start:"top top", end:"bottom top", scrub:true } })
     .to(".hero-img img", { scale:1.18, ease:"none" }, 0)
     .to(".hero h1", { yPercent:-32, opacity:0, ease:"none" }, 0)
-    .to(".hero-kicker,.hero-sub,.hero-scroll", { opacity:0, y:-30, ease:"none" }, 0);
+    .to(".hero-kicker,.hero-sub,.hero-scroll,.hero-logo-mobile", { opacity:0, y:-30, ease:"none" }, 0);
 
   /* =========================================================
      EXPERIENCE — parallax + word reveal
