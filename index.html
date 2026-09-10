@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Kassen Coiffure — Beleza • Cuidado • Experiência</title>
+<title>3Beauty — Cabelo • Estética Facial e Corporal Avançada • Unhas</title>
 <meta name="description" content="Mais do que um salão, um espaço para cuidar de você, transformar sua beleza e viver cada momento." />
 <meta name="theme-color" content="#F6F1E8" />
 
@@ -13,7 +13,7 @@
 
 <style>
   :root{
-    /* Paleta Kassen Coiffure — Malva Suave-Terracota + Branco Puro + contraste escuro */
+    /* Paleta 3Beauty — Malva Suave-Terracota + Branco Puro + contraste escuro */
     --offwhite:#FAF7F5; --bege:#F0E2DA; --nude:#E6D0C6; --champagne:#F4E9E2;
     --gold:#A67E6F; --gold-soft:#C4A398; --cocoa:#3D241C; --cocoa-soft:#7A5647;
     --serif:"Fraunces",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
@@ -54,6 +54,12 @@
   .cursor-ring[data-label="1"] .cursor-label{opacity:1}
   @media (hover:hover) and (pointer:fine){ body.cursor-on,body.cursor-on *{cursor:none} }
   @media (hover:none),(pointer:coarse){ .cursor-dot,.cursor-ring{display:none} }
+
+  /* ---------- whatsapp flutuante ---------- */
+  .whatsapp-float{position:fixed;right:20px;bottom:20px;z-index:80;width:58px;height:58px;
+    border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px -6px rgba(0,0,0,.45);transition:transform .25s var(--ease)}
+  .whatsapp-float:hover{transform:scale(1.08)}
 
   /* ---------- header ---------- */
   .hdr{position:fixed;inset:0 0 auto 0;z-index:50;padding:22px 0;transition:all .5s var(--ease);
@@ -290,6 +296,12 @@
   .cta-actions .primary{background:var(--gold);color:var(--cocoa)}
   .cta-actions .primary:hover{transform:scale(1.03)}
 
+  /* ---------- mapa ---------- */
+  .mapa{background:var(--offwhite);padding:clamp(4rem,8vw,6rem) 0 0}
+  .mapa h2{margin-top:10px;font-size:clamp(1.8rem,4vw,2.75rem)}
+  .mapa-endereco{margin-top:14px;color:var(--cocoa-soft)}
+  .mapa-embed{margin-top:40px;width:100%;height:380px}
+
   /* ---------- footer ---------- */
   footer.site{background:var(--bege);border-top:1px solid rgba(188,156,99,.2)}
   .foot-logo{height:44px;width:auto}
@@ -324,11 +336,15 @@
 <div class="cursor-dot"></div>
 <div class="cursor-ring"><span class="cursor-label"></span></div>
 
+<a href="https://wa.me/351931461475" target="_blank" rel="noreferrer" class="whatsapp-float" data-cursor="button" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 32 32" width="30" height="30" fill="#fff" aria-hidden="true"><path d="M16.004 3C9.1 3 3.5 8.6 3.5 15.5c0 2.4.66 4.66 1.9 6.66L3 29l7.02-2.36a12.42 12.42 0 0 0 5.98 1.53h.01c6.9 0 12.5-5.6 12.5-12.5S22.9 3 16.004 3zm0 22.7h-.01a10.4 10.4 0 0 1-5.3-1.45l-.38-.22-4.17 1.4 1.4-4.06-.25-.42a10.34 10.34 0 0 1-1.6-5.45c0-5.74 4.67-10.4 10.42-10.4 2.78 0 5.4 1.08 7.36 3.05a10.32 10.32 0 0 1 3.05 7.36c0 5.74-4.67 10.19-10.52 10.19zm5.72-7.7c-.31-.16-1.85-.91-2.14-1.02-.29-.1-.5-.16-.7.16-.2.31-.8 1.02-.99 1.23-.18.21-.36.23-.67.08-.31-.16-1.32-.49-2.51-1.55-.93-.83-1.56-1.85-1.74-2.16-.18-.31-.02-.48.14-.63.14-.14.31-.36.47-.55.16-.18.2-.31.31-.52.1-.21.05-.39-.03-.55-.08-.16-.7-1.7-.96-2.32-.25-.61-.51-.53-.7-.53-.18-.01-.39-.01-.6-.01-.21 0-.55.08-.83.39-.29.31-1.09 1.07-1.09 2.6 0 1.53 1.12 3.01 1.27 3.22.16.21 2.2 3.36 5.34 4.71.75.32 1.33.51 1.79.66.75.24 1.43.2 1.97.13.6-.09 1.85-.75 2.11-1.48.26-.73.26-1.36.18-1.48-.08-.13-.28-.21-.59-.36z"/></svg>
+</a>
+
 <header class="hdr">
   <div class="container row">
     <a href="#hero" class="brand" data-cursor="link">
-      <img src="assets/logo-branca.png" class="brand-logo brand-logo-light" alt="Kassen Coiffure" />
-      <img src="assets/logo-preta.png" class="brand-logo brand-logo-dark" alt="Kassen Coiffure" />
+      <img src="assets/logo-branca.png" class="brand-logo brand-logo-light" alt="3Beauty" />
+      <img src="assets/logo-preta.png" class="brand-logo brand-logo-dark" alt="3Beauty" />
     </a>
     <nav class="nav">
       <a href="#hero" data-cursor="link">Início</a>
@@ -336,6 +352,7 @@
       <a href="#experiencia" data-cursor="link">Experiência</a>
       <a href="#produtos" data-cursor="link">Produtos</a>
       <a href="#contato" data-cursor="link">Contato</a>
+      <a href="#localizacao" data-cursor="link">Localização</a>
     </nav>
     <div style="display:flex;align-items:center;gap:12px">
       <a href="#contato" class="btn-book" data-cursor="button">Agendar</a>
@@ -351,6 +368,7 @@
     <a href="#experiencia">Experiência</a>
     <a href="#produtos">Produtos</a>
     <a href="#contato">Contato</a>
+    <a href="#localizacao">Localização</a>
   </div>
   <div class="menu-cta"><a href="#contato">Agendar horário</a></div>
 </div>
@@ -361,17 +379,17 @@
   <section class="hero" id="hero">
     <div class="hero-bg"></div>
     <div class="hero-mask">
-      <div class="hero-img"><img id="heroImg" alt="Cabelo em destaque — Kassen Coiffure" /></div>
+      <div class="hero-img"><img id="heroImg" alt="Cabelo em destaque — 3Beauty" /></div>
     </div>
     <div class="hero-frame"></div>
     <div class="hero-inner">
       <p class="hero-kicker">Salão de beleza</p>
       <h1>
-        <span class="mask"><span class="l1">KASSEN</span></span>
-        <span class="mask"><span class="l2">Coiffure</span></span>
+        <span class="mask"><span class="l1">3</span></span>
+        <span class="mask"><span class="l2">Beauty</span></span>
       </h1>
-      <p class="hero-sub">Beleza • Cuidado • Experiência</p>
-      <img src="assets/logo-branca.png" alt="Kassen Coiffure" class="hero-logo-mobile" />
+      <p class="hero-sub">Cabelo • Estética Facial e Corporal Avançada • Unhas</p>
+      <img src="assets/logo-branca.png" alt="3Beauty" class="hero-logo-mobile" />
     </div>
     <div class="hero-scroll"><i></i></div>
   </section>
@@ -387,8 +405,8 @@
         <p class="exp-copy">Mais do que um salão, um espaço para cuidar de você, transformar sua beleza e viver cada momento.</p>
       </div>
       <div class="media">
-        <div class="exp-img-1"><img data-src="assets/experiencia.jpg" alt="Cabelo Kassen Coiffure" /></div>
-        <div class="exp-img-2"><img data-src="assets/experiencia.jpg" alt="Detalhe de cabelo Kassen Coiffure" /></div>
+        <div class="exp-img-1"><img data-src="assets/experiencia.jpg" alt="Cabelo 3Beauty" /></div>
+        <div class="exp-img-2"><img data-src="assets/experiencia.jpg" alt="Detalhe de cabelo 3Beauty" /></div>
         <span class="exp-gold"></span>
       </div>
     </div>
@@ -398,7 +416,7 @@
   <section class="services" id="servicos">
     <div class="container head">
       <p class="kicker">Serviços</p>
-      <h2>Seu momento Kassen</h2>
+      <h2>Seu momento 3Beauty</h2>
     </div>
     <div class="svc-scroller" id="svcScroller">
       <article class="svc-card" data-cursor="image">
@@ -426,7 +444,7 @@
 
   <!-- HAIR EDITORIAL -->
   <section class="hair" id="hair">
-    <div class="hair-media"><img data-src="assets/hair-editorial.jpg" alt="Interior do salão Kassen Coiffure" /></div>
+    <div class="hair-media"><img data-src="assets/hair-editorial.jpg" alt="Interior do salão 3Beauty" /></div>
     <div class="hair-inner">
       <h2>
         <span class="mask"><span>Cabelo</span></span>
@@ -445,7 +463,7 @@
       <div class="container stage-grid">
         <div class="trt-media">
           <div class="trt-back"><img data-src="1512290923902-8a9f81dc236c" alt="Cuidados com a pele" /></div>
-          <div class="trt-front"><img data-src="assets/tratamentos.jpg" alt="Sala de tratamentos Kassen Coiffure" /></div>
+          <div class="trt-front"><img data-src="assets/tratamentos.jpg" alt="Sala de tratamentos 3Beauty" /></div>
           <span class="trt-gold"></span>
         </div>
         <div>
@@ -467,9 +485,9 @@
     <div class="container">
       <div class="head">
         <p class="kicker">Produtos</p>
-        <h2>Leve a experiência Kassen para casa.</h2>
+        <h2>Leve a experiência 3Beauty para casa.</h2>
         <span class="prod-underline"></span>
-        <p class="intro">Continue seu ritual de cuidado em casa com produtos profissionais selecionados pelo Kassen Coiffure.</p>
+        <p class="intro">Continue seu ritual de cuidado em casa com produtos profissionais selecionados pela 3Beauty.</p>
       </div>
       <div class="prod-grid" id="prodGrid">
         <article class="prod-card" data-cursor="product" data-label="Ver">
@@ -490,8 +508,8 @@
         </article>
       </div>
       <div class="marquee"><div class="marquee-in" id="marquee">
-        <span>Keune</span><span>Linha Profissional</span><span>Coloração</span><span>Kassen Coiffure</span>
-        <span>Keune</span><span>Linha Profissional</span><span>Coloração</span><span>Kassen Coiffure</span>
+        <span>Keune</span><span>Linha Profissional</span><span>Coloração</span><span>3Beauty</span>
+        <span>Keune</span><span>Linha Profissional</span><span>Coloração</span><span>3Beauty</span>
       </div></div>
     </div>
   </section>
@@ -505,12 +523,12 @@
           <div class="p3d-obj"><img data-src="assets/produto-absolute-volume.png" alt="Keune Absolute Volume" /></div>
         </div>
         <div>
-          <p class="kicker" style="color:var(--gold-soft)">Os produtos Kassen</p>
+          <p class="kicker" style="color:var(--gold-soft)">Os produtos 3Beauty</p>
           <div class="swap-wrap" id="p3dSwap" style="height:13rem">
             <div class="swap-step first"><span class="n">01</span><h3>Cuidado</h3><p>Fórmulas que respeitam o fio e o couro cabeludo.</p></div>
             <div class="swap-step"><span class="n">02</span><h3>Profissional</h3><p>A mesma linha usada nos serviços do salão.</p></div>
             <div class="swap-step"><span class="n">03</span><h3>Performance</h3><p>Resultado visível: brilho, maciez e proteção.</p></div>
-            <div class="swap-step"><span class="n">04</span><h3>Leve para casa</h3><p>Seu ritual Kassen continua todos os dias.</p></div>
+            <div class="swap-step"><span class="n">04</span><h3>Leve para casa</h3><p>Seu ritual 3Beauty continua todos os dias.</p></div>
             <a href="#produtos" class="p3d-cta">Conheça nossos produtos <i></i></a>
           </div>
         </div>
@@ -540,7 +558,7 @@
       <div class="container">
         <p class="kicker" style="color:var(--gold-soft)">O que dizem nossas clientes</p>
         <div class="tst-list" id="tstList">
-          <blockquote class="tst-item first"><p>&ldquo;Saí do Kassen me sentindo outra pessoa. Cada detalhe foi pensado para mim.&rdquo;</p><footer><b>Marina R.</b> — Cliente desde 2021</footer></blockquote>
+          <blockquote class="tst-item first"><p>&ldquo;Saí da 3Beauty me sentindo outra pessoa. Cada detalhe foi pensado para mim.&rdquo;</p><footer><b>Marina R.</b> — Cliente desde 2021</footer></blockquote>
           <blockquote class="tst-item"><p>&ldquo;O cuidado com o cabelo e com a experiência é de outro nível. Virou o meu ritual.&rdquo;</p><footer><b>Camila F.</b> — Coloração &amp; tratamento</footer></blockquote>
           <blockquote class="tst-item"><p>&ldquo;Ambiente lindo, equipe impecável e um resultado que sempre supera a expectativa.&rdquo;</p><footer><b>Beatriz L.</b> — Corte &amp; finalização</footer></blockquote>
         </div>
@@ -551,34 +569,45 @@
 
   <!-- FINAL CTA -->
   <section class="cta" id="contato">
-    <div class="cta-bg"><img data-src="assets/cta-cadeira.jpg" alt="Cadeira do salão Kassen Coiffure" /></div>
+    <div class="cta-bg"><img data-src="assets/cta-cadeira.jpg" alt="Cadeira do salão 3Beauty" /></div>
     <div class="cta-inner">
       <div class="cta-info">
         <div class="cta-info-block">
           <p class="cta-info-lbl">Contato</p>
-          <p>(16) 3203-7469</p>
+          <p>+351 931 461 475</p>
+          <p>Av. Emb. Augusto de Castro 21A<br />Oeiras, Portugal 2780-200</p>
         </div>
         <div class="cta-info-block">
           <p class="cta-info-lbl">Social</p>
-          <a href="https://www.instagram.com/salaokassencoiffure/" target="_blank" rel="noreferrer" data-cursor="link">@salaokassencoiffure</a>
-          <p class="cta-info-role">Cabeleireiro &amp; proprietário</p>
-          <a href="https://www.instagram.com/alehairstylist.ugc/" target="_blank" rel="noreferrer" data-cursor="link">@alehairstylist.ugc</a>
+          <a href="https://www.instagram.com/3beau.ty/" target="_blank" rel="noreferrer" data-cursor="link">@3beau.ty</a>
         </div>
       </div>
       <div class="cta-actions">
-        <a href="https://www.instagram.com/salaokassencoiffure/" target="_blank" rel="noreferrer" class="primary" data-cursor="button">Agendar horário</a>
+        <a href="https://www.instagram.com/3beau.ty/" target="_blank" rel="noreferrer" class="primary" data-cursor="button">Agendar horário</a>
       </div>
+    </div>
+  </section>
+
+  <!-- MAPA -->
+  <section class="mapa" id="localizacao">
+    <div class="container">
+      <p class="kicker">Onde estamos</p>
+      <h2>Visite a 3Beauty</h2>
+      <p class="mapa-endereco">Av. Emb. Augusto de Castro 21A, Oeiras, Portugal 2780-200</p>
+    </div>
+    <div class="mapa-embed">
+      <iframe src="https://www.google.com/maps?q=Av.+Emb.+Augusto+de+Castro+21A,+Oeiras,+Portugal+2780-200&output=embed" width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização 3Beauty no Google Maps"></iframe>
     </div>
   </section>
 </main>
 
 <footer class="site">
   <div class="container" style="padding:40px 0 0;text-align:center">
-    <img src="assets/logo-preta.png" alt="Kassen Coiffure" class="foot-logo" />
-    <p style="margin-top:12px;letter-spacing:.1em">Beleza • Cuidado • Experiência</p>
+    <img src="assets/logo-preta.png" alt="3Beauty" class="foot-logo" />
+    <p style="margin-top:12px;letter-spacing:.1em">Cabelo • Estética Facial e Corporal Avançada • Unhas</p>
   </div>
   <div class="container foot-bottom">
-    <p>© <span id="year"></span> Kassen Coiffure. Todos os direitos reservados.</p>
+    <p>© <span id="year"></span> 3Beauty. Todos os direitos reservados.</p>
     <p>Feito com cuidado.</p>
   </div>
 </footer>
